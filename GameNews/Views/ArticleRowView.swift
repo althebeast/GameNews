@@ -27,24 +27,32 @@ struct ArticleRowView: View {
                 HStack {
                     
                     NavigationLink(destination: ArticleDetailView(article: article)) {
-                        if let url = URL(string: article.image?.squareTiny ?? "") {
                             
-                            CachedAsyncImage(url: url) { image in
-                                image
-                                    .resizable()
-                                    .frame(width: 120, height: 120)
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                            } placeholder: {
-                                HStack {
-                                    Spacer()
-                                    ProgressView()
-                                    Spacer()
+                            if let url = URL(string: article.image?.squareTiny ?? "") {
+                                
+                                CachedAsyncImage(url: url) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 135, height: 135)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                        .overlay {
+                                            LinearGradient(stops: [
+                                                Gradient.Stop(color: .clear, location: 0.9),
+                                                Gradient.Stop(color: .black, location: 1)
+                                            ],
+                                                           startPoint: .top,
+                                                           endPoint: .bottom)
+                                        }
+                                } placeholder: {
+                                    HStack {
+                                        Spacer()
+                                        ProgressView()
+                                        Spacer()
+                                    }
                                 }
                             }
-                        }
                         
-                        Spacer()
                         
                         Text("\(article.title).")
                             .padding(.horizontal)
@@ -52,15 +60,23 @@ struct ArticleRowView: View {
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                         
-                        Spacer()
                     }
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "clock")
+                        .font(.headline)
                         .foregroundStyle(.white.opacity(0.6))
                     Text(article.publishDate)
+                        .font(.headline)
                         .foregroundStyle(.white.opacity(0.6))
+                    
+                    Spacer()
+                    
+                    Text("GameSpot")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.red.opacity(0.8))
                 }
             }
     }

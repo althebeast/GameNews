@@ -12,7 +12,7 @@ struct ArticleDataService {
     private var apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
     private var format = "format=json"
     private var sort = "sort=publish_date:desc"
-    private var limit = "limit=10"
+    private var limit = "limit=20"
     
     func getArticles() async -> [ArticleModel] {
         
