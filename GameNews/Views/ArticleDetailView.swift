@@ -57,6 +57,7 @@ struct ArticleDetailView: View {
                 
                 Text(article.body)
                         .lineSpacing(10)
+                        .padding(.bottom, 15)
                 
             }
             .padding()

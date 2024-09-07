@@ -12,7 +12,6 @@ struct ArticleFeedView: View {
     @State private var articles = [ArticleModel]()
     
     var body: some View {
-        NavigationStack {
             ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(articles) { a in
@@ -24,12 +23,9 @@ struct ArticleFeedView: View {
                         
                     }
                     .padding(.vertical, 5)
-                    .listStyle(.plain)
-                    .scrollIndicators(.hidden)
                     .buttonStyle(PlainButtonStyle())
                 }
                 .padding()
-                .navigationTitle("Feed")
                 .task {
                     self.articles = await ArticleDataService().getArticles()
                 }
@@ -39,7 +35,6 @@ struct ArticleFeedView: View {
                     self.articles = await ArticleDataService().getArticles()
                 }
             }
-        }
     }
 }
 

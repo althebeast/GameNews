@@ -23,7 +23,6 @@ struct ArticleRowView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 HStack {
                     
@@ -64,6 +63,5 @@ struct ArticleRowView: View {
                         .foregroundStyle(.white.opacity(0.6))
                 }
             }
-        }
     }
 }

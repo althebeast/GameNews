@@ -10,15 +10,17 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
-        TabView {
-            ArticleFeedView()
-                .tabItem {
-                    Image(systemName: "newspaper")
-                    Text("Feed")
-                }
-                .ignoresSafeArea()
+        NavigationStack {
+            TabView {
+                ArticleFeedView()
+                    .tabItem {
+                        Label("Feed", systemImage: "newspaper")
+                    }
+            }
+            .ignoresSafeArea()
+            .preferredColorScheme(.dark)
+            .navigationTitle("Feed")
         }
-        .preferredColorScheme(.dark)
     }
 }
 
