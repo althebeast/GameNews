@@ -16,9 +16,9 @@ struct HomeView: View {
                     Image(systemName: "newspaper")
                     Text("Feed")
                 }
-                .preferredColorScheme(.dark)
                 .ignoresSafeArea()
         }
+        .preferredColorScheme(.dark)
     }
 }
 

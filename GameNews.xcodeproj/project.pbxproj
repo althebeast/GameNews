@@ -17,6 +17,7 @@
 		8429BA5B2C8C8A610021AB22 /* ArticleFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429BA5A2C8C8A610021AB22 /* ArticleFeedView.swift */; };
 		8429BA5D2C8C8A750021AB22 /* ArticleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429BA5C2C8C8A750021AB22 /* ArticleRowView.swift */; };
 		84E2648A2C8CEF030056D5A2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 84E264892C8CEF030056D5A2 /* CachedAsyncImage */; };
+		84E2648C2C8CF9400056D5A2 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2648B2C8CF9400056D5A2 /* ArticleDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8429BA582C8C87540021AB22 /* ArticleResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResults.swift; sourceTree = "<group>"; };
 		8429BA5A2C8C8A610021AB22 /* ArticleFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFeedView.swift; sourceTree = "<group>"; };
 		8429BA5C2C8C8A750021AB22 /* ArticleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRowView.swift; sourceTree = "<group>"; };
+		84E2648B2C8CF9400056D5A2 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				8429BA412C8C80D70021AB22 /* HomeView.swift */,
 				8429BA5A2C8C8A610021AB22 /* ArticleFeedView.swift */,
 				8429BA5C2C8C8A750021AB22 /* ArticleRowView.swift */,
+				84E2648B2C8CF9400056D5A2 /* ArticleDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				8429BA5D2C8C8A750021AB22 /* ArticleRowView.swift in Sources */,
 				8429BA592C8C87540021AB22 /* ArticleResults.swift in Sources */,
 				8429BA552C8C82130021AB22 /* ArticleModel.swift in Sources */,
+				84E2648C2C8CF9400056D5A2 /* ArticleDetailView.swift in Sources */,
 				8429BA5B2C8C8A610021AB22 /* ArticleFeedView.swift in Sources */,
 				8429BA572C8C82960021AB22 /* ArticleDataService.swift in Sources */,
 				8429BA402C8C80D70021AB22 /* GameNewsApp.swift in Sources */,

@@ -13,25 +13,32 @@ struct ArticleFeedView: View {
     
     var body: some View {
         NavigationStack {
-            List(articles) { a in
-                
-                ArticleRowView(article: a)
-                
-                Divider()
-                    .overlay(.white.opacity(0.7))
-                
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(articles) { a in
+                        
+                            ArticleRowView(article: a)
+                            
+                            Divider()
+                                .overlay(.white.opacity(0.7))
+                        
+                    }
+                    .padding(.vertical, 5)
+                    .listStyle(.plain)
+                    .scrollIndicators(.hidden)
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .padding()
+                .navigationTitle("Feed")
+                .task {
+                    self.articles = await ArticleDataService().getArticles()
+                }
             }
-            .listStyle(.plain)
-            .scrollIndicators(.hidden)
-            .task {
-                self.articles = await ArticleDataService().getArticles()
-        }
             .refreshable {
                 Task {
                     self.articles = await ArticleDataService().getArticles()
                 }
             }
-            .navigationTitle("Feed")
         }
     }
 }

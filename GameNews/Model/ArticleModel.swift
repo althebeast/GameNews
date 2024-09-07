@@ -35,10 +35,13 @@ struct ArticleModel: Decodable, Identifiable {
 struct Images: Decodable {
     
     var squareTiny: String
+    var original: String
     
     enum CodingKeys: String, CodingKey {
         
         case squareTiny = "square_tiny"
+        
+        case original
         
     }
     
