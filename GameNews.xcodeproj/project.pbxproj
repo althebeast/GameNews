@@ -16,6 +16,7 @@
 		8429BA592C8C87540021AB22 /* ArticleResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429BA582C8C87540021AB22 /* ArticleResults.swift */; };
 		8429BA5B2C8C8A610021AB22 /* ArticleFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429BA5A2C8C8A610021AB22 /* ArticleFeedView.swift */; };
 		8429BA5D2C8C8A750021AB22 /* ArticleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429BA5C2C8C8A750021AB22 /* ArticleRowView.swift */; };
+		84E2648A2C8CEF030056D5A2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 84E264892C8CEF030056D5A2 /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E2648A2C8CEF030056D5A2 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +138,9 @@
 			dependencies = (
 			);
 			name = GameNews;
+			packageProductDependencies = (
+				84E264892C8CEF030056D5A2 /* CachedAsyncImage */,
+			);
 			productName = GameNews;
 			productReference = 8429BA3C2C8C80D70021AB22 /* GameNews.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +169,9 @@
 				Base,
 			);
 			mainGroup = 8429BA332C8C80D70021AB22;
+			packageReferences = (
+				84E264882C8CEF030056D5A2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = 8429BA3D2C8C80D70021AB22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -419,6 +427,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84E264882C8CEF030056D5A2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84E264892C8CEF030056D5A2 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84E264882C8CEF030056D5A2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8429BA342C8C80D70021AB22 /* Project object */;
 }

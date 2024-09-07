@@ -6,13 +6,53 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ArticleRowView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    var article: ArticleModel
+    
+    var newDate:DateFormatter {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = .current
+        
+        return dateFormatter
     }
-}
-
-#Preview {
-    ArticleRowView()
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                
+                if let url = URL(string: article.image?.squareTiny ?? "") {
+                    
+                    CachedAsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                    } placeholder: {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                    }
+                }
+                
+                Spacer()
+                
+                Text(article.title)
+                    .padding(.horizontal)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.leading)
+                
+                Spacer()
+            }
+        }
+    }
 }

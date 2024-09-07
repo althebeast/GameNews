@@ -33,6 +33,9 @@ struct ArticleDataService {
                 let (data, response) = try await session.data(for: request)
                 
                 let decoder = JSONDecoder()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                decoder.dateDecodingStrategy = .formatted(formatter)
                 let articles = try decoder.decode(ArticleResults.self, from: data)
                 
                 print(response)
