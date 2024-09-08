@@ -12,6 +12,16 @@ struct ArticleDetailView: View {
     
     var article: ArticleModel
     
+    var newDate:DateFormatter {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = .current
+        
+        return dateFormatter
+    }
+    
     var body: some View {
         
             VStack {
@@ -60,7 +70,7 @@ struct ArticleDetailView: View {
                     
                     Spacer()
                     
-                    Text(article.publishDate)
+                    Text(newDate.string(from: article.publishDate))
                         .font(.headline)
                         .padding(.bottom, 10)
                         .foregroundStyle(.white.opacity(0.6))

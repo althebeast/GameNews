@@ -34,7 +34,8 @@ struct ArticleDataService {
                 
                 let decoder = JSONDecoder()
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                formatter.locale = Locale(identifier: "en_US_POSIX")
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 decoder.dateDecodingStrategy = .formatted(formatter)
                 let articles = try decoder.decode(ArticleResults.self, from: data)
                 

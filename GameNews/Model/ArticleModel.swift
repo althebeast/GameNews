@@ -10,7 +10,7 @@ import Foundation
 struct ArticleModel: Decodable, Identifiable {
     
     let id = UUID()
-    var publishDate: String
+    var publishDate: Date
     var authors: String
     var title: String
     var image: Images?

@@ -70,7 +70,7 @@ struct ArticleRowView: View {
                     Image(systemName: "clock")
                         .font(.headline)
                         .foregroundStyle(.white.opacity(0.6))
-                    Text(article.publishDate)
+                    Text(newDate.string(from: article.publishDate))
                         .font(.headline)
                         .foregroundStyle(.white.opacity(0.6))
                     
