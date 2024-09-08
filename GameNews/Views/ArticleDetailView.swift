@@ -24,7 +24,7 @@ struct ArticleDetailView: View {
     
     var body: some View {
         
-            VStack {
+            VStack() {
                 
                 if let url = URL(string: article.image?.original ?? "") {
                     
@@ -60,6 +60,7 @@ struct ArticleDetailView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom, 10)
+                    .multilineTextAlignment(.leading)
                 
                 
                 HStack {

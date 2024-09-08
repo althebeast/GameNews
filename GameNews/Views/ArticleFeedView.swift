@@ -11,12 +11,16 @@ struct ArticleFeedView: View {
     
     @State private var articles = [ArticleModel]()
     
+    let columns = [
+            GridItem()
+        ]
+    
     var body: some View {
             ScrollView(showsIndicators: false) {
-                VStack {
+                LazyVGrid(columns: columns) {
                     ForEach(articles) { a in
                         
-                            ArticleRowView(article: a)
+                        ArticleRowView(article: a)
                             
                             Divider()
                                 .overlay(.white.opacity(0.7))

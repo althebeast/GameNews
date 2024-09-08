@@ -53,7 +53,7 @@ struct ArticleRowView: View {
                                 }
                                 .frame(maxHeight: 135)
                                 .background(Color.gray.opacity(0.3))
-                                .clipped()
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
                             }
                         
                         

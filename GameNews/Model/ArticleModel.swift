@@ -44,5 +44,4 @@ struct Images: Decodable {
         case original
         
     }
-    
 }
