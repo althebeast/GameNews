@@ -38,6 +38,9 @@ struct ArticleDetailView: View {
                             Spacer()
                         }
                     }
+                    .frame(maxHeight: 215)
+                    .background(Color.gray.opacity(0.3))
+                    .clipped()
                 }
                 
                 
@@ -63,7 +66,7 @@ struct ArticleDetailView: View {
                         .foregroundStyle(.white.opacity(0.6))
                 }
                 
-                Text(article.body)
+                    Text(article.body.withoutHtmlTags())
                         .lineSpacing(10)
                         .padding(.bottom, 15)
                 
@@ -71,5 +74,12 @@ struct ArticleDetailView: View {
             .padding()
         }
         .ignoresSafeArea()
+    }
+}
+
+extension String {
+    func withoutHtmlTags() -> String {
+        let str = self.replacingOccurrences(of: "<style>[^>]+</style>", with: "", options: .regularExpression, range: nil)
+        return str.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
 }

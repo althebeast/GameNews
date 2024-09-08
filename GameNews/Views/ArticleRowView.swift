@@ -51,6 +51,9 @@ struct ArticleRowView: View {
                                         Spacer()
                                     }
                                 }
+                                .frame(maxHeight: 135)
+                                .background(Color.gray.opacity(0.3))
+                                .clipped()
                             }
                         
                         
