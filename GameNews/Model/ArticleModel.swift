@@ -16,10 +16,12 @@ struct ArticleModel: Decodable, Identifiable {
     var image: Images?
     var deck: String
     var body: String
+    var siteDetailURL: String
     
     enum CodingKeys: String, CodingKey {
         
         case publishDate = "publish_date"
+        case siteDetailURL = "site_detail_url"
         
         case id
         case authors

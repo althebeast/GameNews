@@ -24,6 +24,7 @@ struct ArticleDetailView: View {
     
     var body: some View {
         
+        GeometryReader { geo in
             VStack() {
                 
                 if let url = URL(string: article.image?.original ?? "") {
@@ -48,41 +49,52 @@ struct ArticleDetailView: View {
                             Spacer()
                         }
                     }
-                    .frame(maxHeight: 215)
+                    .frame(maxWidth: geo.size.width ,maxHeight: 215)
                     .background(Color.gray.opacity(0.3))
                     .clipped()
                 }
                 
                 
                 ScrollView(showsIndicators: false) {
-                
-                Text(article.title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.bottom, 10)
-                    .multilineTextAlignment(.leading)
-                
-                
-                HStack {
-                    Text(article.authors)
-                        .font(.headline)
-                        .padding(.bottom, 10)
-                        .foregroundStyle(.white.opacity(0.6))
                     
-                    Spacer()
+                    Text(article.title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding(10)
+                        .frame(alignment: .leading)
+                        .multilineTextAlignment(.leading)
                     
-                    Text(newDate.string(from: article.publishDate))
-                        .font(.headline)
-                        .padding(.bottom, 10)
-                        .foregroundStyle(.white.opacity(0.6))
-                }
-                
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                                    Text("GameSpot")
+                                        .font(.headline)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.red.opacity(0.8))
+                                    
+                                    Text(article.authors)
+                                        .font(.headline)
+                                        .foregroundStyle(.white.opacity(0.6))
+                        }
+                        .padding(10)
+                        
+                        Spacer()
+                        
+                        Text(newDate.string(from: article.publishDate))
+                            .font(.headline)
+                            .padding(.bottom, 10)
+                            .foregroundStyle(.white.opacity(0.6))
+                    }
+                    .padding(.horizontal)
+                    
                     Text(article.body.withoutHtmlTags())
                         .lineSpacing(10)
+                        .padding()
                         .padding(.bottom, 15)
-                
+                        
+                    
+                }
             }
-            .padding()
         }
         .ignoresSafeArea()
     }

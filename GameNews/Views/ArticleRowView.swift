@@ -51,7 +51,7 @@ struct ArticleRowView: View {
                                         Spacer()
                                     }
                                 }
-                                .frame(maxHeight: 135)
+                                .frame(maxWidth: 135, maxHeight: 135)
                                 .background(Color.gray.opacity(0.3))
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                             }
@@ -76,10 +76,31 @@ struct ArticleRowView: View {
                     
                     Spacer()
                     
-                    Text("GameSpot")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.red.opacity(0.8))
+                    HStack {
+                        Image(systemName: "g.circle")
+                        Text("GameSpot")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.red.opacity(0.8))
+                    }
+                    
+                    Spacer()
+                        
+                    ShareLink(item: URL(string: article.siteDetailURL)!) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "heart")
+                    })
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "bookmark")
+                    })
                 }
             }
     }
