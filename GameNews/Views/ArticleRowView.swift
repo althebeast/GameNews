@@ -51,7 +51,7 @@ struct ArticleRowView: View {
                                         Spacer()
                                     }
                                 }
-                                .frame(maxWidth: 135, maxHeight: 135)
+                                .frame(maxWidth: 135, maxHeight: 160)
                                 .background(Color.gray.opacity(0.3))
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                             }

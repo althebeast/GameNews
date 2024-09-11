@@ -32,7 +32,7 @@ struct ArticleDetailView: View {
                     CachedAsyncImage(url: url) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .overlay {
                                 LinearGradient(stops: [
@@ -49,7 +49,7 @@ struct ArticleDetailView: View {
                             Spacer()
                         }
                     }
-                    .frame(maxWidth: geo.size.width ,maxHeight: 215)
+                    .frame(width: geo.size.width ,height: 215)
                     .background(Color.gray.opacity(0.3))
                     .clipped()
                 }
@@ -102,7 +102,7 @@ struct ArticleDetailView: View {
 
 extension String {
     func withoutHtmlTags() -> String {
-        let str = self.replacingOccurrences(of: "<style>[^>]+</style>", with: "", options: .regularExpression, range: nil)
-        return str.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        let str = self.replacingOccurrences(of: "<style>[^>]+</style>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: ".", with: ". ").trimmingCharacters(in: .whitespaces)
+        return str.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: ".", with: ". ").trimmingCharacters(in: .whitespaces)
     }
 }

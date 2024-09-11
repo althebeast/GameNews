@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct GameNewsApp: App {
+    
+    @StateObject var articleViewModel: ArticleViewModel = ArticleViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationStack {
+                HomeView()
+            }
+            .environmentObject(articleViewModel)
         }
     }
 }

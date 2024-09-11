@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
-        NavigationStack {
+        
             TabView {
                 ArticleFeedView()
                     .tabItem {
@@ -20,10 +20,12 @@ struct HomeView: View {
             .ignoresSafeArea()
             .preferredColorScheme(.dark)
             .navigationTitle("Feed")
-        }
     }
 }
 
 #Preview {
-    HomeView()
+    NavigationStack {
+        HomeView()
+            .environmentObject(ArticleViewModel())
+    }
 }

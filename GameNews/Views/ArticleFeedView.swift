@@ -9,40 +9,48 @@ import SwiftUI
 
 struct ArticleFeedView: View {
     
-    @State private var articles = [ArticleModel]()
+    @EnvironmentObject var articleViewModel: ArticleViewModel
     
     let columns = [
             GridItem()
         ]
     
     var body: some View {
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: columns) {
-                    ForEach(articles) { a in
-                        
-                        ArticleRowView(article: a)
+        GeometryReader { geo in
+        ScrollView(showsIndicators: false) {
+                    LazyVGrid(columns: columns) {
+                        ForEach(articleViewModel.articles) { a in
                             
-                            Divider()
-                                .overlay(.white.opacity(0.7))
-                        
+                            ArticleRowView(article: a)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke()
+                                        .frame(width: geo.size.width/1.02, height: 190)
+                                }
+                                .shadow(color: .white.opacity(0.7), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 5)
+                            
+                        }
+                        .padding(.vertical)
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .padding(.vertical, 5)
-                    .buttonStyle(PlainButtonStyle())
+                    .padding()
+                    .task {
+                        await articleViewModel.getData()
                 }
-                .padding()
-                .task {
-                    self.articles = await ArticleDataService().getArticles()
                 }
             }
             .refreshable {
                 Task {
-                    self.articles = await ArticleDataService().getArticles()
+                    await articleViewModel.getData()
                 }
             }
     }
 }
 
 #Preview {
-    ArticleFeedView()
-        .preferredColorScheme(.dark)
+    NavigationStack {
+        ArticleFeedView()
+            .preferredColorScheme(.dark)
+        .environmentObject(ArticleViewModel())
+    }
 }
